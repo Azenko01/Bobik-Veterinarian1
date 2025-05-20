@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Bobik Veterinarian</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: #4a9e5c;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #3a7d48;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4a9e5c;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #3a7d48;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            color: #333;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .main-nav .nav-menu {
+            display: flex;
+        }
+
+        .main-nav .nav-menu li {
+            margin-left: 20px;
+        }
+
+        .main-nav .nav-menu a {
+            color: #333;
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .main-nav .nav-menu a.active {
+            color: #4a9e5c;
+        }
+
+        .main-nav .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #4a9e5c;
+            transition: width 0.3s ease;
+        }
+
+        .main-nav .nav-menu a:hover::after,
+        .main-nav .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .cart-icon a {
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: #333;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #4a9e5c;
+            color: #fff;
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: transform 0.3s ease;
+        }
+
+        /* Page Header */
+        .page-header {
+            background-color: #4a9e5c;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        /* About Page */
+        .about-page {
+            padding: 60px 0;
+        }
+
+        .about-story {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .story-text {
+            flex: 1;
+        }
+
+        .story-image {
+            flex: 1;
+        }
+
+        .story-text h2 {
+            margin-bottom: 20px;
+            color: #4a9e5c;
+        }
+
+        .story-text p {
+            margin-bottom: 15px;
+        }
+
+        .mission-values {
+            margin-bottom: 60px;
+        }
+
+        .mission-values h2 {
+            margin-bottom: 20px;
+            color: #4a9e5c;
+            text-align: center;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .mission-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission-card h3 {
+            color: #4a9e5c;
+            margin-bottom: 15px;
+        }
+
+        .team-section {
+            margin-bottom: 60px;
+        }
+
+        .team-section h2 {
+            margin-bottom: 20px;
+            color: #4a9e5c;
+            text-align: center;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .team-member h3 {
+            margin: 20px 0 5px;
+        }
+
+        .member-title {
+            color: #4a9e5c;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .team-member p {
+            padding: 0 20px 20px;
+        }
+
+        .testimonials {
+            margin-bottom: 60px;
+        }
+
+        .testimonials h2 {
+            margin-bottom: 20px;
+            color: #4a9e5c;
+            text-align: center;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .testimonial-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-content {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .cta-section {
+            background-color: #4a9e5c;
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cta-section .btn {
+            background-color: #fff;
+            color: #4a9e5c;
+        }
+
+        .cta-section .btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .cta-section .btn-secondary {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .cta-section .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo h3 {
+            margin-bottom: 10px;
+        }
+
+        .footer-links h3, .footer-contact h3, .footer-hours h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3::after, .footer-contact h3::after, .footer-hours h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #4a9e5c;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .footer-contact p, .footer-hours li {
+            margin-bottom: 10px;
+        }
+
+        .footer-hours li span {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-story {
+                flex-direction: column;
+            }
+            
+            .story-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: #fff;
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                transition: left 0.3s ease;
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .mission-grid, .team-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-QYtAdFJAtI0gNXBOCDjoqCAcab8PTR.png" alt="Bobik Veterinarian Logo">
+                        <span>Bobik Veterinarian</span>
+                    </a>
+                </div>
+                
+                <nav class="main-nav">
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html" class="active">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="cart-icon">
+                    <a href="cart.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>About Us</h1>
+                <p>Get to know our story and our team</p>
+            </div>
+        </section>
+        
+        <section class="about-page">
+            <div class="container">
+                <!-- Our Story -->
+                <div class="about-story">
+                    <div class="story-text">
+                        <h2>Our Story</h2>
+                        <p>Bobik Veterinarian was founded in 2010 by Dr. Maria Petrova, a passionate veterinarian with a vision to create a one-stop shop for all pet needs. What started as a small clinic with a few shelves of pet supplies has grown into a comprehensive pet care center serving thousands of pet owners in the community.</p>
+                        <p>Named after Dr. Petrova's childhood dog Bobik, our store embodies the love and care that every pet deserves. Over the years, we've expanded our services to include not only veterinary care but also a wide range of high-quality pet products, grooming services, and nutritional consultations.</p>
+                        <p>Today, Bobik Veterinarian is proud to be a family-owned business that treats every pet that walks through our doors as if they were our own. Our team of dedicated professionals shares the same passion for animal welfare and is committed to providing the best care possible for your beloved companions.</p>
+                    </div>
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1583336663277-620dc1996580?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bobik Veterinarian Store History">
+                    </div>
+                </div>
+                
+                <!-- Mission and Values -->
+                <div class="mission-values">
+                    <h2>Our Mission & Values</h2>
+                    <div class="mission-grid">
+                        <div class="mission-card">
+                            <h3>Our Mission</h3>
+                            <p>To enhance the lives of pets and their owners by providing exceptional veterinary care, premium products, and educational resources that promote the health and happiness of all animals.</p>
+                        </div>
+                        <div class="mission-card">
+                            <h3>Quality</h3>
+                            <p>We are committed to offering only the highest quality products and services. Every item in our store is carefully selected to ensure it meets our strict standards for safety, effectiveness, and value.</p>
+                        </div>
+                        <div class="mission-card">
+                            <h3>Compassion</h3>
+                            <p>We treat every animal with the utmost care and respect. Our team understands the special bond between pets and their owners and approaches every interaction with empathy and kindness.</p>
+                        </div>
+                        <div class="mission-card">
+                            <h3>Education</h3>
+                            <p>We believe in empowering pet owners with knowledge. Through consultations, workshops, and resources, we help you make informed decisions about your pet's health and well-being.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Our Team -->
+                <div class="team-section">
+                    <h2>Meet Our Team</h2>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dr. Maria Petrova">
+                            <h3>Dr. Maria Petrova</h3>
+                            <p class="member-title">Founder & Head Veterinarian</p>
+                            <p>With over 15 years of experience in veterinary medicine, Dr. Petrova specializes in small animal care and is passionate about preventative health measures.</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Alex Johnson">
+                            <h3>Alex Johnson</h3>
+                            <p class="member-title">Store Manager</p>
+                            <p>Alex ensures our store runs smoothly and that customers always find what they need. He's known for his extensive knowledge of pet nutrition and supplements.</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sarah Chen">
+                            <h3>Sarah Chen</h3>
+                            <p class="member-title">Veterinary Technician</p>
+                            <p>Sarah assists in all medical procedures and provides compassionate care to our patients. She has a special interest in feline medicine.</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="https://images.unsplash.com/photo-1542740348-39501cd6e2b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Michael Rodriguez">
+                            <h3>Michael Rodriguez</h3>
+                            <p class="member-title">Pet Groomer</p>
+                            <p>Michael has been grooming pets for over 8 years and is skilled in handling all breeds and temperaments. He's especially good with nervous animals.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonials -->
+                <div class="testimonials">
+                    <h2>What Our Customers Say</h2>
+                    <div class="testimonial-grid">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p>"Bobik Veterinarian has been taking care of my three dogs for years. The staff is always friendly, and Dr. Petrova is incredibly knowledgeable. I wouldn't trust my pets with anyone else!"</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Emily Wilson">
+                                <div>
+                                    <h4>Emily Wilson</h4>
+                                    <p>Dog Owner</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p>"When my cat needed emergency surgery, the team at Bobik was there for us every step of the way. Not only did they provide excellent medical care, but they also followed up to make sure she was recovering well."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="David Kim">
+                                <div>
+                                    <h4>David Kim</h4>
+                                    <p>Cat Owner</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p>"I love that I can get everything my pets need in one place. From veterinary check-ups to high-quality food and toys, Bobik Veterinarian has it all. Their staff is always ready to offer advice on the best products for my pets."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Jennifer Lopez">
+                                <div>
+                                    <h4>Jennifer Lopez</h4>
+                                    <p>Multiple Pet Owner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Experience the Bobik Difference?</h2>
+                <p>Visit our store today or shop online for all your pet care needs.</p>
+                <div class="cta-buttons">
+                    <a href="products.html" class="btn">Shop Now</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-QYtAdFJAtI0gNXBOCDjoqCAcab8PTR.png" alt="Bobik Veterinarian Logo">
+                    <h3>Bobik Veterinarian</h3>
+                    <p>Your one-stop shop for all pet needs</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><strong>Address:</strong> 123 Pet Avenue, Animalville, AV 12345</p>
+                    <p><strong>Phone:</strong> (555) 123-4567</p>
+                    <p><strong>Email:</strong> info@bobikveterinary.com</p>
+                </div>
+                
+                <div class="footer-hours">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li><span>Monday - Friday:</span> 9:00 AM - 7:00 PM</li>
+                        <li><span>Saturday:</span> 10:00 AM - 6:00 PM</li>
+                        <li><span>Sunday:</span> 11:00 AM - 4:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bobik Veterinarian. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    
+                    // Toggle menu icon
+                    const bars = menuToggle.querySelectorAll('.bar');
+                    bars[0].style.transform = navMenu.classList.contains('active') ? 'rotate(45deg) translate(5px, 5px)' : '';
+                    bars[1].style.opacity = navMenu.classList.contains('active') ? '0' : '1';
+                    bars[2].style.transform = navMenu.classList.contains('active') ? 'rotate(-45deg) translate(7px, -7px)' : '';
+                });
+            }
+            
+            // Shopping cart functionality - update cart count
+            const cartCountElement = document.querySelector('.cart-count');
+            
+            // Initialize cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Update cart count in header
+            function updateCartCount() {
+                if (cartCountElement) {
+                    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                    cartCountElement.textContent = totalItems;
+                }
+            }
+            
+            // Update cart count on page load
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>
